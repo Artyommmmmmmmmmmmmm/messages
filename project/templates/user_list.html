@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% for user in userlist %}
+    {% if request.user != user %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td> <a href="/messages/{{user.id}}" class="alink">отпраавить сообщение</a> </td><br>
+        </tr>    
+    {% endif %}
+{% endfor %}
+
+{% endblock content %}

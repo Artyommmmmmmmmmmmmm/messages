@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="{% static 'styles.css' %}?20"  >
+        <title>Список пользователей</title>
+    </head>
+    <body>
+        <header>
+            <a href="/messages" class="btn">пользователи</a>
+            <a href="/messages/group" class="btn">группы</a>
+            <a href="/" class="btn">главная</a>
+            <a href="/messages/addgroup" class="btn">создать группу</a>
+            {% if request.user.profile %}
+                <a href="/messages/updateprofile" class="btn">профиль</a>
+            {% else %}
+                <a href="/messages/addprofile" class="btn">профиль</a>
+            {% endif %}
+            </header>
+        {% block content %}
+        {% endblock content %}
+    </body>
+
+</html>

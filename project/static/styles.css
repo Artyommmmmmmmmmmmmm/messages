@@ -1,0 +1,87 @@
+
+body{
+    margin: 0;
+    margin-bottom: 0;
+    padding: 0;
+    background: #070018;
+    color: white;
+}
+
+header{
+    margin: 0;
+    background: #5a4d7a;
+    min-height: 30px;
+}
+
+.grad{
+    margin: 0;
+    padding: 0 0 0;
+    color: white ;
+    background: linear-gradient(#5a4d7a, #882121);
+}
+
+.messageform{
+    color: rgb(54, 140, 180);
+    width: 100;
+}
+
+.msgs{
+    display: flex;
+    flex-direction: column;
+}
+
+.msg{
+    color:white;
+    background: #882121;
+    position: relative;
+    padding: 6px 12px 14px 12px;
+    margin: 2px 0 2px 0;
+    transition: all .6s ease-out;
+    border-radius: 3px;
+}
+
+.btn{
+    margin-left: 10px;
+    margin-right: 10px;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: white;
+}
+
+.yours{
+    float: left;
+}
+
+.notyours{
+    float: right;
+}
+
+.youauthor{
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    float: left;
+}
+.notyouauthor{
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    float: right;
+}
+
+.members{
+    float: right;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* display: grid;
+    grid-template-columns: auto minmax(0,1fr);
+    gap: 8px; */
+}
+
+.alink{
+    color: lightblue;
+    text-decoration: none;
+}

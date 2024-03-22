@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+   
+
+    {% if request.user.is_authenticated %}
+
+        <h1>Hi {{ request.user.username }}!</h1>
+
+        <a href="{% url 'account_logout' %}">Logout</a>
+
+    {% else %}
+
+        <h1>Not logged in</h1>
+
+        <a class="btn" href="{% url 'account_login' %}">Login</a>
+    {% endif %}
+    <br>
+    <a href="{% url 'list' %}" > к пользователяи</a><br>
+    <a href="{% url 'addchat' %}">создать группу</a><br>
+    <a href="{% url 'chatlist' %}">чаты</a><br>
+
+{% endblock content %}

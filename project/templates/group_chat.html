@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="members">
+    {% for member in targetchat.members.all %}
+        <tr>
+            <td>{{ member.username }}</td><br>
+        </tr>    
+    {% endfor %}
+</div>
+
+
+{% if request.user in targetchat.members.all %}
+    <div class="msgs">
+        {% for message in messages %}
+            {% if message.author == request.user %}
+                <div class="msg">
+                        <p class="youauthor">{{message.author.username}}</p><br>
+                        <span class="youauthor">{{message.text}}</span>
+                </div>
+            {% else %}    
+                <div class="msg">
+                    <p class="notyouauthor">{{message.author.username}}</p><br>
+                    <span class="notyouauthor">{{message.text}}</span>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div>
+
+        <form method='post' class="messageform">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="отправить" class="grad">
+        </form>
+    </div>
+{% else %}
+    <p>Вы не состоите в этом чате</p>
+{% endif %}
+{% endblock content %}

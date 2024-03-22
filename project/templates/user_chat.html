@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <span class="yours">{{ request.user.username }}</span>
+    <span class="notyours">{{ targetuser.username }}</span>
+</div>
+
+
+<div class="msgs">
+    {% for message in messages %}
+        {% if request.user == message.author and targetuser == message.target %}
+            <div class="msg">
+                <span class="yours">{{message.text}}</span>
+            </div>
+        {% elif request.user == message.target and targetuser == message.author %}
+            <div class="msg">
+                <span class="notyours">{{message.text}}</span>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<div>
+
+    <form method='post' class="messageform">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="отправить" class="grad">
+    </form>
+</div>
+{% endblock content %}

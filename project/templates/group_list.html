@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for group in grouplist %}
+<tr>
+    <td>{{ group.name }}</td>
+    {% if  request.user in group.members.all %}
+        <td> <a href="/messages/disconnect/{{group.id}}" class="alink">покинуть</a></td>
+    {% else %}
+        <td> <a href="/messages/connect/{{group.id}}" class="alink">присоединиться</a> </td>
+    {% endif %}
+    <td> <a href="/messages/group/{{group.id}}" class="alink">перейти в чаи</a> </td>
+</tr>    
+{% endfor %}
+{% endblock content %}
